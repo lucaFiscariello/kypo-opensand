@@ -1,18 +1,16 @@
 ---
 # This is a role for setting up the client.
 
-- name: Create alias for server
+- name: Create alias for sat
   lineinfile:
     path: '/etc/hosts'
-    line: '192.168.20.5 server'
+    line: '192.168.0.1 sat'
 
-- name: Install packages
-  apt:
-    pkg:
-     - nmap
-     - hydra
-     - medusa
-    update_cache: yes
+- name: Create alias for gw
+  lineinfile:
+    path: '/etc/hosts'
+    line: '192.168.0.3 gw'
+
 
 - name: Add passwords file to the home directory
   copy:
