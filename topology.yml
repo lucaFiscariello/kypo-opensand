@@ -7,13 +7,19 @@ hosts:
       man_user: ubuntu
     flavor: standard.small
 
-  - name: client
+  - name: sat
     base_box: 
       image: ubuntu-focal-x86_64
       man_user: ubuntu
     flavor: standard.small
 
-  - name: client2
+  - name: gw
+    base_box: 
+      image: ubuntu-focal-x86_64
+      man_user: ubuntu
+    flavor: standard.small
+  
+  - name: st
     base_box: 
       image: ubuntu-focal-x86_64
       man_user: ubuntu
@@ -27,30 +33,29 @@ routers:
     flavor: standard.small
 
 networks:
-  - name: server-switch
-    cidr: 192.168.20.0/24
-    accessible_by_user: False
-
-  - name: client-switch
-    cidr: 192.168.30.0/24
+  - name: switch
+    cidr: 192.168.0.0/24
 
 net_mappings:
     - host: server
       network: server-switch
       ip: 192.168.20.5
-    - host: client
-      network: client-switch
-      ip: 192.168.30.7
-    - host: client2
-      network: client-switch
-      ip: 192.168.30.6
+    - host: sat
+      network: switch
+      ip: 192.168.0.1
+    - host: gw
+      network: switch
+      ip: 192.168.0.3
+    - host: st
+      network: switch
+      ip: 192.168.0.2
 
 router_mappings:
     - router: router
       network: server-switch
       ip: 192.168.20.1
     - router: router
-      network: client-switch
+      network: switch
       ip: 192.168.30.1
 
 groups: []
