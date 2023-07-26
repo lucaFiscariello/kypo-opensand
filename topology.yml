@@ -3,20 +3,23 @@ name: kypo-crp-demo-training
 hosts:
   - name: sat
     base_box: 
-      image: cirros
+      image: ubuntu-focal-x86_64
       man_user: ubuntu
+      mgmt_protocol: ssh
     flavor: standard.small
 
   - name: gw
     base_box: 
-      image: cirros
+      image: ubuntu-focal-x86_64
       man_user: ubuntu
+      mgmt_protocol: ssh
     flavor: standard.small
   
   - name: st
     base_box: 
-      image: cirros
+      image: ubuntu-focal-x86_64
       man_user: ubuntu
+      mgmt_protocol: ssh
     flavor: standard.small
 
 routers:
