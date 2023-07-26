@@ -12,10 +12,31 @@
     line: '192.168.0.2 st'
 
 
-- name: Add passwords file to the home directory
+- name: Add Makefile file to the home directory
   copy:
-    src: passlist.txt
-    dest: /home/user/passlist.txt
+    src: Makefile
+    dest: /home/user/Makefile
+    owner: user
+    mode: 0644
+
+- name: Add infrastructure.xml file to the home directory
+  copy:
+    src: infrastructure.xml
+    dest: /home/user/infrastructure.xml
+    owner: user
+    mode: 0644
+
+- name: Add profile.xml file to the home directory
+  copy:
+    src: profile.xml
+    dest: /home/user/profile.xml
+    owner: user
+    mode: 0644
+
+- name: Add topology.xml file to the home directory
+  copy:
+    src: topology.xml
+    dest: /home/user/topology.xml
     owner: user
     mode: 0644
 
