@@ -1,12 +1,6 @@
 name: kypo-crp-demo-training
 
 hosts:
-  - name: server
-    base_box: 
-      image: ubuntu-focal-x86_64
-      man_user: ubuntu
-    flavor: standard.small
-
   - name: sat
     base_box: 
       image: ubuntu-focal-x86_64
@@ -37,9 +31,6 @@ networks:
     cidr: 192.168.0.0/24
 
 net_mappings:
-    - host: server
-      network: server-switch
-      ip: 192.168.20.5
     - host: sat
       network: switch
       ip: 192.168.0.1
@@ -51,9 +42,6 @@ net_mappings:
       ip: 192.168.0.2
 
 router_mappings:
-    - router: router
-      network: server-switch
-      ip: 192.168.20.1
     - router: router
       network: switch
       ip: 192.168.30.1
