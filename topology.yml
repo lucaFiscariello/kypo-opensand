@@ -40,7 +40,7 @@ net_mappings:
       ip: 192.168.20.5
     - host: client
       network: client-switch
-      ip: 192.168.30.5
+      ip: 192.168.30.7
     - host: client2
       network: client-switch
       ip: 192.168.30.6
