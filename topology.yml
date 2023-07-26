@@ -1,0 +1,45 @@
+name: kypo-crp-demo-training
+
+hosts:
+  - name: sat
+    base_box: 
+      image: ubuntu-focal-x86_64
+      man_user: ubuntu
+    flavor: standard.small
+
+  - name: gw
+    base_box: 
+      image: ubuntu-focal-x86_64
+      man_user: ubuntu
+    flavor: standard.small
+
+  - name: st
+    base_box: 
+      image: ubuntu-focal-x86_64
+      man_user: ubuntu
+    flavor: standard.small
+
+
+networks:
+  - name: lan-sat
+    cidr: 192.168.0.0/24
+
+  - name: lan-ws-sat
+    cidr: 10.254.254.0/24
+  
+  - name: lan-ws-gw
+    cidr: 10.255.255.0/24
+
+net_mappings:
+    - host: gw
+      network: lan-sat
+      ip: 192.168.0.3
+    - host: sat
+      network: lan-sat
+      ip: 192.168.0.1
+    - host: st
+      network: lan-sat
+      ip: 192.168.0.2
+
+
+groups: []

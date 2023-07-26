@@ -1,0 +1,14 @@
+---
+
+- name: disable qxl
+  hosts:
+      - routers
+      - hosts
+  gather_facts: yes
+  become: yes
+  tasks:
+      - include_role:
+            name: kypo-disable-qxl
+        when: ansible_os_family == 'Debian'
+
+...
